@@ -1,0 +1,36 @@
+<section class="container mt-5">
+    <section class="row">
+        <!--
+            FORMULARIO
+        -->
+          <div class="container col-md-6 col-sm-12 bg-primary-subtle">
+            <form>
+                <fieldset>
+                  <legend class="text-center">Converor de divisas</legend>
+                  <div class="mb-3">
+                    <label for="email" class="form-label">Email</label>
+                    <input name="email" type="email" id="email" class="form-control bg-white text-end" placeholder="Ingrese su email" [(ngModel)]="transaccion.emailCliente">
+                  </div>
+                  <div class="mb-3">
+                    <label for="cantidadOrigen" class="form-label" >Cantidad</label>
+                    <input name="cantidadOrigen" type="number" id="cantidadOrigen" class="form-control bg-white text-end" placeholder="cantidad" [(ngModel)]="transaccion.cantidadOrigen">
+                  </div>
+                  <div class="mb-1">
+                    <label for="currencySelect" class="form-label">De</label>
+                    <select id="currencySelect" class="form-select" name="monedaOrigen" [(ngModel)]="transaccion.monedaOrigen">
+                      <option *ngFor="let m of todasLasMonedas" [value]="m.codigo">{{m.codigo}}</option>
+                    </select>
+                  </div>
+                  <div class="mb-1">
+                    <label for="currencySelect" class="form-label">A</label>
+                    <select id="currencySelect" class="form-select" name="modenaDestino" [(ngModel)]="transaccion.monedaDestino">
+                      <option *ngFor="let m of todasLasMonedas" [value]="m.codigo">{{m.codigo}}</option>
+                    </select>
+                  </div>
+                  <input name="cantidadDestino" type="number" id="cantidadDestino" class="form-control bg-white text-end" placeholder="Resultado" readonly  [(ngModel)]="transaccion.cantidadDestino">
+                  <button class="btn btn-warning mt-2 w-100 mb-3" (click)="convertDivisas()">Convertir</button>
+                </fieldset>
+              </form>
+          </div>
+    </section>
+</section>

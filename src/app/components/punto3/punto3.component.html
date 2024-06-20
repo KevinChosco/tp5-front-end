@@ -1,0 +1,51 @@
+<br><br><br><br>
+<div class="container d-flex flex-wrap flex-column justify-content-center align-content-center mt-5 mb-5">
+  <h1 class="text-bg-dark text-center rounded-2 ">Comprar Entradas</h1>
+    <form class="col-5 border rounded-3 p-5">
+        <div class="mb-3">
+          <label for="precioReal" class="form-label">Precio Real</label>
+          <input type="number" name="prec_Real" class="form-control" id="precioReal" readonly value=3000>
+        </div>
+        <div class="mb-3">
+          <label for="tipoEspectador" class="form-label">Tipo de Espectador</label>
+          <select class="form-select" name="tipeEspectador" id="tipoEspectador" [(ngModel)]="ticket.categoriaEspectador" (change)="actualizarPrecio(ticket.categoriaEspectador)">
+            <option value="" selected>Seleccione...</option>
+            <option value="l">Local</option>
+            <option value="e">Extranjero</option>
+          </select>
+        </div>
+        <div class="mb-3">
+          <label for="fechaCobro" class="form-label">Fecha de Cobro</label>
+          <input type="string" name="fecha_Cobro" class="form-control" id="fechaCobro" [(ngModel)]="ticket.fechaCompra">
+        </div>
+        <div class="mb-3">
+          <label for="precioCobrado" class="form-label">Precio Cobrado</label>
+          <input type="number" name="prec-Cobrado" class="form-control" id="precioCobrado" readonly [(ngModel)]="ticket.precioTicket">
+        </div>
+        <div class="mb-3">
+          <label for="idespectador" class="form-label">Responsable</label>
+          <select class="form-select" name="espectador" [(ngModel)]="ticket.espectador">
+            
+            <option *ngFor="let e of espectadores" [ngValue]="e" >{{e.apellido}}, {{e.nombre}}</option>
+            
+          </select>
+        </div>
+        <div class="mb-3">
+          <label for="idcategoria" class="form-label">Categoria Boleto</label>
+          <select class="form-select" name="categoria" [(ngModel)]="ticket.categoriaBoleto">
+            
+            <option *ngFor="let ca of categorias" [ngValue]="ca" >{{ca.nombre}}, {{ca.descripcion}}</option>
+            
+          </select>
+        </div>
+        <div class="d-flex justify-content-center">
+         @if(accion=="new"){
+            <button type="submit" name="register_button" class="btn btn-dark w-50" (click)="agregar()">REGISTRAR</button>
+         }@else{
+            <button type="submit" name="register_button" class="btn btn-warning w-50" (click)="modificar()">ACTUALIZAR</button>
+         }
+        </div>
+        
+      </form>
+      
+</div>

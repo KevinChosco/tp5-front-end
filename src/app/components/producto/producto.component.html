@@ -1,0 +1,43 @@
+<div class="container mt-5">
+<div class="row">
+    <h3 class="col-12 text-center text-primary text-decoration-underline">LISTADO DE PRODUCTOS</h3>
+</div>
+
+<div class="row mb-2">
+    <div class="col-12">
+        <button class="btn-primary" (click)="agregar()">AGREGAR</button>
+    </div>
+</div>
+<h3>PRODUCTOS DESTACADOS</h3>
+<div class="row">
+<div *ngFor="let p of productos" class="card" style="width: 18rem;">
+    <img src="{{p.imagen}}" class="card-img-top" alt="...">
+    <div class="card-body">
+      <h5 class="card-title">{{p.nombre}}</h5>
+      <p class="card-text">{{p.descripcion}}</p>
+      <p class="card-text">{{p.precio}}</p>
+      <button class="btn btn-success" (click)="modificar(p)">MOD</button>
+      <button class="btn btn-danger" (click)="eliminar(p)">BORRAR</button>
+    </div>
+  </div>
+</div>
+  <h3>PRODUCTOS NO DESTACADOS</h3>
+  <div class="row">
+  <div *ngFor="let pn of productosNoDest" class="card" style="width: 18rem;">
+    <img src="{{pn.imagen}}" class="card-img-top" alt="...">
+    <div class="card-body">
+      <h5 class="card-title">{{pn.nombre}}</h5>
+      <p class="card-text">{{pn.descripcion}}</p>
+      <p class="card-text">{{pn.precio}}</p>
+      <button class="btn btn-success" (click)="modificar(pn)">MOD</button>
+      <button class="btn btn-danger" (click)="eliminar(pn)">BORRAR</button>
+    </div>
+  </div>
+</div>   
+    <!--    <td>
+            
+        </td>
+
+    </tr>-->
+    
+</div>

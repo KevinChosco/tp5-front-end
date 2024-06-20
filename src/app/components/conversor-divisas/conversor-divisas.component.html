@@ -1,0 +1,36 @@
+<br><br><br><br>
+<div class="container mt-5 mb-5">
+    <div class="mb-3">
+        <label for="monedaOrigen" class="form-label" >Moneda Origen</label>
+        <input name="monedaOrigen" type="text" id="monedaOrigen" class="form-control bg-white" placeholder="cantidad" [(ngModel)]="monedaOrigen">
+      </div>
+      <div class="mb-3">
+        <label for="monedaDestino" class="form-label" >Moneda Destino</label>
+        <input name="monedaDestino" type="text" id="monedaDestino" class="form-control bg-white" placeholder="cantidad" [(ngModel)]="monedaDestino">
+      </div>
+      <button class="btn btn-success" (click)="obtenerListadoByDivisas()">Buscar</button>
+      <button class="btn btn-warning" (click)="volver()">Volver</button>
+  <div class="col-md-12 d-none d-sm-block mt-5">
+      <h2 class="bg-info text-center">CONVERSOR DE DIVISAS</h2>
+  <table class="table">
+      <thead>
+        <tr>
+          <th scope="col">Email</th>
+          <th scope="col">Moneda Origen</th>
+          <th scope="col">Cantidad</th>
+          <th scope="col">Moneda Destino</th>
+          <th scope="col">Conversion Resultado</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let c of transaccionesByDivisa">
+          <td>{{c.emailCliente}}</td>
+          <td class="text-info">{{c.monedaOrigen}}</td>
+          <td class="text-info">{{c.cantidadOrigen}}</td>
+          <td class="text-info">{{c.monedaDestino}}</td>
+          <td class="text-info">{{c.cantidadDestino}}</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+  </div>

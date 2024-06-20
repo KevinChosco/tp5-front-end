@@ -1,0 +1,67 @@
+<br><br><br><br>
+
+@if(mostrar==true){
+<div class="container mt-5 mb-5">
+  <button class="btn btn-danger" (click)="agregar()">Agregar</button>
+<div class="col-md-12 d-none d-sm-block">
+    <h2 class="bg-info text-center">CONVERSOR DE DIVISAS</h2>
+<table class="table">
+    <thead>
+      <tr>
+        <th scope="col">Email</th>
+        <th scope="col">Moneda Origen</th>
+        <th scope="col">Cantidad</th>
+        <th scope="col">Moneda Destino</th>
+        <th scope="col">Conversion Resultado</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let c of transacciones">
+        <td>{{c.emailCliente}}</td>
+        <td class="text-info">{{c.monedaOrigen}}</td>
+        <td class="text-info">{{c.cantidadOrigen}}</td>
+        <td class="text-info">{{c.monedaDestino}}</td>
+        <td class="text-info">{{c.cantidadDestino}}</td>
+      </tr>
+    </tbody>
+  </table>
+</div>
+<button class="btn btn-danger" (click)="modificar()">Buscar por Email</button>
+<button class="btn btn-danger" (click)="buscar()">Buscar por Divisas</button>
+</div>
+}@else{
+<div class="container mt-5">
+  <div class="col-md-12 d-none d-sm-block mt-5">
+    <div class="mb-3">
+      <label for="email" class="form-label" >Buscar Transacciones</label>
+      <input name="email" type="email" id="email" class="form-control bg-white" placeholder="Ingrese email" [(ngModel)]="email">
+    </div>
+    <button class="btn btn-success" (click)="obtenerProductos()">Buscar Transacciones</button>
+    <button type="submit" class="btn btn-warning" (click)="volver()">Volver</button>
+    <h2 class="bg-info text-center mt-5">LISTADO SEGUN EMAIL</h2>
+    
+  <table class="table">
+    <thead>
+      <tr>
+        <th scope="col">Email</th>
+        <th scope="col">Moneda Origen</th>
+        <th scope="col">Cantidad</th>
+        <th scope="col">Moneda Destino</th>
+        <th scope="col">Conversion Resultado</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let e of transaccionesByEmail">
+        <td class="text-danger">{{e.emailCliente}}</td>
+        <td class="text-danger">{{e.monedaOrigen}}</td>
+        <td class="text-danger">{{e.cantidadOrigen}}</td>
+        <td class="text-danger">{{e.monedaDestino}}</td>
+        <td class="text-danger">{{e.cantidadDestino}}</td>
+      </tr>
+    </tbody>
+  </table>
+  
+  </div>
+
+</div>
+}
