@@ -1,6 +1,6 @@
 import { Component } from '@angular/core';
 import { ProductoService } from '../../services/producto.service';
-import { ActivatedRoute, Router } from '@angular/router';
+//import { ActivatedRoute, Router } from '@angular/router';
 import { Producto } from '../../models/producto';
 import { FormsModule } from '@angular/forms';
 
@@ -15,12 +15,12 @@ export class ProductoFormComponent {
 
   accion!:string;
   producto!:Producto;
-  constructor(private productoService:ProductoService,private activatedRoute:ActivatedRoute,private router:Router){
+/*constructor(private productoService:ProductoService,private activatedRoute:ActivatedRoute,private router:Router){
     this.iniciarVariable();
     
-  }
+  }*/
 
-  ngOnInit(): void {
+  /*ngOnInit(): void {
     this.activatedRoute.params.subscribe(params =>{
       if(params['id']=="0"){
         this.accion = "new";
